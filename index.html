@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resolvedor de Equações</title>
+</head>
+<body>
+        <h1 class="titulo">Resolvedor de equações</h1>
+        
+            <section class="conteudo">
+                <div>
+                    <input type="number" name="a" id="a">
+                    <label for="a">Digite o valor do coeficiente <strong>a</strong></label>
+                </div><br><br>
+                <div>
+                    <input type="number" name="b" id="b">
+                    <label for="b">Digite o valor do coeficiente <strong>b</strong></label>
+                </div><br><br>
+                <div>
+                    <input type="number" name="c" id="c">
+                    <label for="c">Digite o valor do coeficiente <strong>c</strong></label>
+                </div><br><br><br>
+
+                <div class="res" id="res">
+                    <button id="botao" onclick="calcular()"><strong>Calcular</strong></button>
+                </div>
+                
+            </section>
+
+            <script>
+               
+                var botao = document.getElementById('botao')
+                
+                function calcular(){
+                    var ca = document.getElementById('a')
+                    var a = Number(ca.value)
+                    var cb = document.getElementById('b')
+                    var b = Number(cb.value)
+                    var cc = document.getElementById('c')
+                    var c = Number(cc.value)
+                    var res = document.getElementById('res')
+
+                    var delta = (b**2) - 4 * a * c
+                    var x1 = (-b + (delta ** 0.5)) / (2 * a)
+                    var x2 = (-b - (delta ** 0.5)) / (2 * a)
+
+                    if(isNaN(x1)){
+                        res.innerHTML = (`Verifique e tente novamente <br> <a href='index.html'>Inserir Novamente</a>`) 
+                    }else{
+                        res.innerHTML = (`<strong>X' = ${x1} e X'' = ${x2}</strong> <br> <a href='index.html'>Inserir Novamente</a>`)  
+                    }
+
+                      
+                }
+            </script>
+        
+</body>
+</html>
